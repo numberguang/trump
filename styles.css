@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* 导航栏样式 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* 主要内容区域样式 */
+.hero {
+    height: 100vh; /* 改回原来的高度 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('images/trump-bitcoin-bg.jpg');
+    background-size: contain; /* 改为 contain 以显示完整图片 */
+    background-position: center center;
+    background-repeat: no-repeat; /* 防止图片重复 */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 添加左侧装饰 */
+.hero::after {
+    content: '';
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 400px;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 107, 0.1));
+    border-left: 2px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    animation: float-left 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+/* 添加右侧装饰 */
+.hero::before {
+    content: '';
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 400px;
+    background: linear-gradient(-45deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 107, 0.1));
+    border-right: 2px solid rgba(255, 107, 107, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    animation: float-right 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+/* 添加浮动动画 */
+@keyframes float-left {
+    0%, 100% {
+        transform: translateY(-50%) translateX(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(20px);
+    }
+}
+
+@keyframes float-right {
+    0%, 100% {
+        transform: translateY(-50%) translateX(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(-20px);
+    }
+}
+
+/* 添加粒子效果 */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    animation: particle-float 15s linear infinite;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(100vh) translateX(-50%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50%);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* 关于我们部分样式 */
+.about {
+    padding: 5rem 10%;
+    text-align: center;
+    background: linear-gradient(45deg, #000, #1a1a1a);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd700;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-link {
+    display: inline-block;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.x-logo {
+    width: 40px;
+    height: 40px;
+    color: #ffd700; /* 使用金色 */
+}
+
+.x-logo:hover {
+    color: #ff6b6b; /* 悬停时变为红色 */
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #000;
+    color: #666;
+} 
